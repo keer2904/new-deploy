@@ -20,7 +20,7 @@ public class StudentActivityPointsApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("https://cute-cactus-93a4ff.netlify.app") // your frontend domain
+						.allowedOrigins("https://student-activity-point-management-sys.netlify.app") // your frontend domain
 						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
 						.allowedHeaders("*")
 						.allowCredentials(true);
