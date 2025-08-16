@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = "/api";  // Vite will proxy this to Spring Boot
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 export const fetchActivities = async () => {
     try {
