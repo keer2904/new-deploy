@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 const NavBar = () => {
   const [user, setUser] = useState(null);

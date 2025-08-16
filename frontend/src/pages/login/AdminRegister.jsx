@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./admin_R.css"; // ✅ Import the CSS
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 const AdminRegister = () => {
   const [admin, setAdmin] = useState({ name: "", email: "", password: "" });

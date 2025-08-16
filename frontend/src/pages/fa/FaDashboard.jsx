@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import "./Dashboard.css";
 import axios from "axios";
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 const FaDashboard = () => {
     const [faData, setFaData] = useState([]);

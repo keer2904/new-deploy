@@ -1,5 +1,6 @@
 import axios from 'axios';
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+import API_BASE_URL from "./apiConfig";
+
 
 export const fetchActivities = async () => {
   try {
@@ -10,5 +11,3 @@ export const fetchActivities = async () => {
     throw error;
   }
 };
-
-export default API_BASE_URL;

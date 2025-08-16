@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import { Link } from "react-router-dom";
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 
 const StudentDashboard = () => {

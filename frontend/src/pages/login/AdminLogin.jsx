@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AdminAuthContext } from "../../context/AdminAuthContext";
 import "./admin_L.css"; 
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");

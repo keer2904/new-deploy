@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import "./activities.css";
-import API_BASE_URL from "../../services/api";
+import API_BASE_URL from "../../services/apiConfig";
 
 const ActivityHistory = () => {
     const [activities, setActivities] = useState([]);
