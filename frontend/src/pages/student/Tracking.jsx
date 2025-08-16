@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import "./student.css";
+import API_BASE_URL from "../../services/api";
+
 
 const Tracking = () => {
   const { user } = useContext(AuthContext); // Get user details from AuthContext
@@ -22,7 +24,7 @@ const Tracking = () => {
   useEffect(() => {
     if (!sid) return;
 
-    fetch(`http://localhost:8080/requests/student/${sid}`)
+    fetch(`${API_BASE_URL}/requests/student/${sid}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -51,7 +53,7 @@ const Tracking = () => {
   };
 
   const fetchRequestById = (id) => {
-    fetch(`http://localhost:8080/requests/${id}`)
+    fetch(`${API_BASE_URL}/requests/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Request not found");

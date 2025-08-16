@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./admin_R.css"; // ✅ Import the CSS
+import API_BASE_URL from "../../services/api";
 
 const AdminRegister = () => {
   const [admin, setAdmin] = useState({ name: "", email: "", password: "" });
@@ -14,7 +15,7 @@ const AdminRegister = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/admin/register", admin);
+      await axios.post("${API_BASE_URL}/admin/register", admin);
       alert("Admin registered successfully!");
       navigate("/admin/login");
     } catch (err) {

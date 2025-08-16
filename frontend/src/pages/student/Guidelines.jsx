@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './guidelines.css';
+import API_BASE_URL from "../../services/api";
 
 const Guidelines = () => {
   const [guidelines, setGuidelines] = useState([]);
 
   useEffect(() => {
     // Fetch guidelines from backend
-    axios.get('http://localhost:8080/api/guidelines') // Adjust URL based on your backend setup
+    axios.get('${API_BASE_URL}/api/guidelines') // Adjust URL based on your backend setup
       .then(response => {
         setGuidelines(response.data);
       })

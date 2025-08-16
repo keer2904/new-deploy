@@ -40,4 +40,8 @@ public class AdminAuthController {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/test")
+    public String test() {
+    return "Admin controller is working!";
+}
 }

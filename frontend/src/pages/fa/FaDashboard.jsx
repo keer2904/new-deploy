@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import "./Dashboard.css";
 import axios from "axios";
+import API_BASE_URL from "../../services/api";
 
 const FaDashboard = () => {
     const [faData, setFaData] = useState([]);
@@ -92,7 +93,7 @@ useEffect(() => {
     useEffect(() => {
         if (!storedFAID) return;
     
-        fetch(`http://localhost:8080/api/fa/student-list/${storedFAID}`)
+        fetch(`${API_BASE_URL}/api/fa/student-list/${storedFAID}`)
             .then(response => response.json())
             .then(data => {
                 setStudentCount(data.length); // Set total student count

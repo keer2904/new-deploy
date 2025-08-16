@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import "./request.css";
+import API_BASE_URL from "../../services/api";
+
 
 const RequestForm = () => {
   const { user, loading } = useContext(AuthContext);
@@ -150,7 +152,7 @@ const RequestForm = () => {
            
         };
 
-        const response = await fetch("http://localhost:8080/requests", {
+        const response = await fetch("${API_BASE_URL}/requests", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

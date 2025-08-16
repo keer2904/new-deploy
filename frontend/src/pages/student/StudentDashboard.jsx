@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../../services/api";
+
 
 const StudentDashboard = () => {
     const [student, setStudent] = useState(null);
@@ -24,13 +26,13 @@ const StudentDashboard = () => {
             console.log("Fetching data for Student ID:", user.sid);
 
             // Fetch Student Data
-            const studentResponse = await fetch(`http://localhost:8080/api/student/${user.sid}`);
+            const studentResponse = await fetch(`${API_BASE_URL}/api/student/${user.sid}`);
             if (!studentResponse.ok) throw new Error("Failed to fetch student data.");
             const studentData = await studentResponse.json();
             setStudent(studentData);
 
             // Fetch Latest Activity
-            const activityResponse = await fetch(`http://localhost:8080/api/student/${user.sid}/activities`);
+            const activityResponse = await fetch(`${API_BASE_URL}/api/student/${user.sid}/activities`);
             if (!activityResponse.ok) throw new Error("Failed to fetch activity data.");
             const activityData = await activityResponse.json();
             if (activityData.length > 0) {
@@ -38,7 +40,7 @@ const StudentDashboard = () => {
             }
 
             // Fetch Announcements
-            const announcementResponse = await fetch(`http://localhost:8080/api/student/${user.sid}/announcements`);
+            const announcementResponse = await fetch(`${API_BASE_URL}/api/student/${user.sid}/announcements`);
             if (!announcementResponse.ok) throw new Error("Failed to fetch announcements.");
             const announcementData = await announcementResponse.json();
             console.log("Fetched announcements:", announcementData);

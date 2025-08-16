@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import { AdminAuthContext } from "../../context/AdminAuthContext";
 import "./admin_L.css"; 
+import API_BASE_URL from "../../services/api";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/admin/login", {
+      const res = await axios.post("${API_BASE_URL}/admin/login", {
         email,
         password,
       });

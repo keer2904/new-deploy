@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import "./activities.css";
+import API_BASE_URL from "../../services/api";
+
 const ActivityHistory = () => {
     const [activities, setActivities] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -17,7 +19,7 @@ const ActivityHistory = () => {
 
                 console.log("Fetching activities for student ID:", studentID);
 
-                const response = await fetch(`http://localhost:8080/api/student/${studentID}/activities`);
+                const response = await fetch(`${API_BASE_URL}/api/student/${studentID}/activities`);
                 if (!response.ok) throw new Error(`Failed to fetch activities: ${response.statusText}`);
 
                 const data = await response.json();

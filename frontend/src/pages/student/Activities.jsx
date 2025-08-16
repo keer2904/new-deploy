@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./activities.css";
 import { FaStar } from "react-icons/fa";
+import API_BASE_URL from "../../services/api";
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
@@ -12,7 +13,7 @@ const Activities = () => {
     }
   }
   useEffect(() => {
-    fetch("http://localhost:8080/api/activities", {
+    fetch("${API_BASE_URL}/api/activities", {
       method: 'GET', headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

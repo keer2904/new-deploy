@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./student.css";
+import API_BASE_URL from "../../services/api";
 
 const Announcements = () => {
   const [announcements, setAnnouncements] = useState([]);
@@ -23,7 +24,7 @@ const Announcements = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:8080/api/student/${user.sid}/announcements`);
+      const response = await fetch(`${API_BASE_URL}/api/student/${user.sid}/announcements`);
       if (!response.ok) throw new Error("Failed to fetch announcements.");
 
       const data = await response.json();

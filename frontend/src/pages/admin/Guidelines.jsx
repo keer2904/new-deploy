@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios"; // Import axios for API calls
+import axios from "axios"; 
 import "./Guidelines.css";
 
 const Guidelines = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [inputText, setInputText] = useState({ body: "" });
   const [guidelines, setGuidelines] = useState([]);
-  const [editGuideline, setEditGuideline] = useState(null); // Track which guideline is being edited
+  const [editGuideline, setEditGuideline] = useState(null); 
 
-  // 📌 Fetch Guidelines from Backend
   const fetchData = async () => {
     try {
       const response = await axios.get("/api/admin/guidelines");
       if (response.status === 200) {
-        setGuidelines(response.data); // Store guidelines in state
+        setGuidelines(response.data); 
       } else {
         alert("Error loading guidelines!");
       }
@@ -23,12 +22,10 @@ const Guidelines = () => {
     }
   };
 
-  // 📌 Load guidelines on page load
   useEffect(() => {
     fetchData();
   }, []);
 
-  // 📌 Show Add Guideline Popup
   const handleCreateClick = () => {
     setInputText({ body: "" });
     setEditGuideline(null);

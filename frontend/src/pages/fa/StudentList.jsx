@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./studlist.css";
 import { Link } from "react-router-dom";
+import API_BASE_URL from "../../services/api";
+
 export default function StudentList() {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ if (!faid) {
       return;
     }
     
-    fetch(`http://localhost:8080/api/fa/student-list/${faid}`)
+    fetch(`${API_BASE_URL}/api/fa/student-list/${faid}`)
       .then((response) => response.json())
       .then((data) => {
         setStudents(data);

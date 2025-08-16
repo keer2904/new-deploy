@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
+import API_BASE_URL from "../../services/api";
 
 const NavBar = () => {
   const [user, setUser] = useState(null);
@@ -30,12 +31,12 @@ const NavBar = () => {
   
         if (userData.role === "student") {
           setRole("student");
-          const response = await fetch(`http://localhost:8080/api/student/${userData.sid}`);
+          const response = await fetch(`${API_BASE_URL}/api/student/${userData.sid}`);
           const data = await response.json();
           setUser(data);
         } else if (userData.role === "fa") {
           setRole("fa");
-          const response = await fetch(`http://localhost:8080/api/fa/${userData.faid}`);
+          const response = await fetch(`${API_BASE_URL}/api/fa/${userData.faid}`);
           const data = await response.json();
           setUser(data);
         }

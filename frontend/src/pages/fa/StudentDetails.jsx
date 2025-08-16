@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./studelist.css"; // Ensure this CSS exists
+import API_BASE_URL from "../../services/api";
 
 const StudentDetails = () => {
   const { sid } = useParams();
@@ -12,7 +13,7 @@ const StudentDetails = () => {
   useEffect(() => {
     const fetchStudentDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/fa/student-details/${sid}`);
+        const response = await fetch(`${API_BASE_URL}/api/fa/student-details/${sid}`);
         if (!response.ok) throw new Error("Failed to fetch student details.");
 
         const data = await response.json();
