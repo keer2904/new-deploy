@@ -30,7 +30,7 @@ const Approvals = () => {
   const fetchfaData = async (email) => {
     if (!email) return;
     try {
-      const response = await axios.get(`/api/fa/details?email=${email}`);
+      const response = await axios.get(`${API_BASE_URL}/api/fa/details?email=${email}`);
       if (response.status === 200) {
         setFaDetails({
           faId: response.data.fa_id,
@@ -49,7 +49,7 @@ const Approvals = () => {
     if (studentFAIds[sid]) return; // Already fetched
   
     try {
-      const response = await axios.get(`/api/fa/get-Fa?sid=${sid}`);
+      const response = await axios.get(`${API_BASE_URL}/api/fa/get-Fa?sid=${sid}`);
       console.log(response.data)
       if (response.status === 200) {
         setStudentFAIds(prev => ({
@@ -65,7 +65,7 @@ const Approvals = () => {
   // Validate Student
   const handleValidation = async (rid, index) => {
     try {
-        const response = await axios.post(`/api/fa/validate-request/${rid}`);
+        const response = await axios.post(`${API_BASE_URL}/api/fa/validate-request/${rid}`);
         
         if (response.status === 200) {
             // Fetch the latest requests after validation
@@ -95,7 +95,7 @@ const Approvals = () => {
     }
     try {
 
-      const response = await axios.post(`/api/fa/approve-request/${rid}?email=${user.email}&points=${enteredPoints}`);
+      const response = await axios.post(`${API_BASE_URL}/api/fa/approve-request/${rid}?email=${user.email}&points=${enteredPoints}`);
       if (response.status === 200) {
         await fetchfaData(user.email);
         alert("Approve=al successful")
@@ -109,7 +109,7 @@ const Approvals = () => {
   // Reject Request
   const handleReject = async (rid, index) => {
     try {
-      const response = await axios.post(`/api/fa/reject-request/${rid}`);
+      const response = await axios.post(`${API_BASE_URL}/api/fa/reject-request/${rid}`);
       if (response.status === 200) {
         await fetchfaData(user.email);
         alert("Rejection successful")

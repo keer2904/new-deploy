@@ -33,7 +33,7 @@ const AnnouncementDetail = () => {
           return;
         }
 
-        const response = await axios.get(`/api/fa/${user.faid}/announcements/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/api/fa/${user.faid}/announcements/${id}`);
         if (response.status === 200) {
           setAnnouncement(response.data);
         } else {

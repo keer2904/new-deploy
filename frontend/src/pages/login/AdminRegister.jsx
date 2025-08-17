@@ -15,7 +15,7 @@ const AdminRegister = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("${API_BASE_URL}/admin/register", admin);
+      await axios.post(`${API_BASE_URL}/admin/register`, admin);
       alert("Admin registered successfully!");
       navigate("/admin/login");
     } catch (err) {

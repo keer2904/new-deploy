@@ -8,7 +8,7 @@ const Guidelines = () => {
 
   useEffect(() => {
     // Fetch guidelines from backend
-    axios.get('${API_BASE_URL}/api/guidelines') // Adjust URL based on your backend setup
+    axios.get(`${API_BASE_URL}/api/guidelines`) // Adjust URL based on your backend setup
       .then(response => {
         setGuidelines(response.data);
       })
