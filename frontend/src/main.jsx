@@ -6,7 +6,7 @@ import AuthProvider from './context/AuthContext';
 import { AdminAuthProvider } from './context/AdminAuthContext'; // ✅ Add this line
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-const clientId = '106651985831-5o1vmt5gkugtflio95623p82s3de8o39.apps.googleusercontent.com';
+const clientId = '1039306360250-oo2p0smau55mr1uiosme0bvf3qnh0mpf.apps.googleusercontent.com';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
