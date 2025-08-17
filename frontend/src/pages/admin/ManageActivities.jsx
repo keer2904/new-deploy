@@ -153,8 +153,8 @@ const ActivityManagement = () => {
         alert("Error deleting activity!");
       }
     } catch (error) {
-      console.error("Error deleting activity", error);
-      alert("Failed to delete activity!");
+      // console.error("Error deleting activity", error);
+      // alert("Failed to delete activity!");
     }
   };
 
