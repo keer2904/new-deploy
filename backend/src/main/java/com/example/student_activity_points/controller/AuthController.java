@@ -11,7 +11,6 @@ import com.example.student_activity_points.domain.Fa;
 import com.example.student_activity_points.domain.Student;
 import com.example.student_activity_points.repository.FARepository;
 import com.example.student_activity_points.repository.StudentRepository;
-import com.example.student_activity_points.service.GoogleOAuthService;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -22,10 +21,6 @@ public class AuthController {
 
     @Autowired
     private FARepository faRepository;
-
-    @Autowired
-    private GoogleOAuthService googleOAuthService;
-
 
  @PostMapping("/login-student")
 public ResponseEntity<?> loginstudent(@RequestBody Map<String, String> request) {
@@ -67,35 +62,6 @@ public ResponseEntity<?> loginFA(@RequestBody Map<String, String> request) {
     } else {
         return ResponseEntity.status(401).body("Invalid email");
     }
-}
-
-@GetMapping("/google/callback")
-public ResponseEntity<?> googleCallback(@RequestParam String code) {
-    String accessToken = googleOAuthService.getAccessToken(code);
-    Map<String, Object> googleUser = googleOAuthService.getUserInfo(accessToken);
-    String email = (String) googleUser.get("email");
-
-    Optional<Student> student = studentRepository.findByEmailID(email);
-    if (student.isPresent()) {
-        return ResponseEntity.ok(Map.of(
-            "sid", student.get().getSid(),
-            "name", student.get().getName(),
-            "email", email,
-            "role", "student"
-        ));
-    }
-
-    Optional<Fa> fa = faRepository.findByEmailID(email);
-    if (fa.isPresent()) {
-        return ResponseEntity.ok(Map.of(
-            "faid", fa.get().getFAID(),
-            "name", fa.get().getName(),
-            "email", email,
-            "role", "fa"
-        ));
-    }
-
-    return ResponseEntity.status(401).body("Unauthorized user");
 }
 
     }
