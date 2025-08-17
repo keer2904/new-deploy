@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./approvals.css";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import API_BASE_URL from "../../services/apiConfig";
 
 const Approvals = () => {
   const { user } = useContext(AuthContext);

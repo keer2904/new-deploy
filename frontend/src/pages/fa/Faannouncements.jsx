@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Announcement = () => {
   return (
     <div style={styles.announcementContainer}>

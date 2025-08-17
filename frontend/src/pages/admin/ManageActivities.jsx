@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './admin.css';
 import axios from 'axios';
+import API_BASE_URL from "../../services/apiConfig";
 
 const ActivityManagement = () => {
   const [activities, setActivities] = useState([]);

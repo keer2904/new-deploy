@@ -4,6 +4,7 @@ import "./AdminDashboard.css";
 import { FaUserGraduate, FaUserTie } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 import axios from "axios"
+import API_BASE_URL from "../../services/apiConfig";
 
 const AdminDashboard = () => {
   const [stats,setStats]=useState({

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Announcements from "./Announcements";
+import API_BASE_URL from "../../services/apiConfig";
 
 
 const formatDate = (dateString) => {
