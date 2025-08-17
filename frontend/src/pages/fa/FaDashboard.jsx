@@ -51,7 +51,7 @@ useEffect(() => {
     console.log("📡 Calling API with email:", email); // Debugging Step 2
 
     try {
-        const response = await axios.get(`/api/fa/details?email=${email}`);
+        const response = await axios.get(`${API_BASE_URL}/api/fa/details?email=${email}`);
         console.log("✅ API Response:", response.data); // Debugging Step 3
 
         if (response.status === 200 && Array.isArray(response.data)) {
@@ -66,7 +66,7 @@ useEffect(() => {
 };
 
     useEffect(() => {
-        fetch("/api/fa/dashboard")
+        fetch(`${API_BASE_URL}/api/fa/dashboard`)
             .then(response => response.json())
             .then(data => {
                 setFaData(data);
@@ -74,7 +74,7 @@ useEffect(() => {
                 if (dids.length === 0) return;
 
                 Promise.all(dids.map(did =>
-                    fetch(`/api/fa/departments/${did}`)
+                    fetch(`${API_BASE_URL}/api/fa/departments/${did}`)
                         .then(response => response.json())
                         .then(dep => ({ did, depName: dep.name || "Unknown" })) 
                         .catch(() => ({ did, depName: "Unknown" }))

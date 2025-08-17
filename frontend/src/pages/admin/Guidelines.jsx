@@ -10,7 +10,7 @@ const Guidelines = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("/api/admin/guidelines");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/guidelines`);
       if (response.status === 200) {
         setGuidelines(response.data); 
       } else {
@@ -56,7 +56,7 @@ const Guidelines = () => {
     try {
       if (editGuideline) {
         // 📝 Update Existing Guideline
-        const response = await axios.put(`/api/admin/guidelines/${editGuideline.gid}`, inputText);
+        const response = await axios.put(`${API_BASE_URL}/api/admin/guidelines/${editGuideline.gid}`, inputText);
         if (response.status === 200) {
           fetchData(); // Refresh List
           setShowPopup(false);
@@ -65,7 +65,7 @@ const Guidelines = () => {
         }
       } else {
         // ➕ Create New Guideline
-        const response = await axios.post("/api/admin/guidelines", inputText);
+        const response = await axios.post(`${API_BASE_URL}/api/admin/guidelines`, inputText);
         if (response.status === 200) {
           fetchData(); // Refresh List
           setShowPopup(false);
@@ -82,7 +82,7 @@ const Guidelines = () => {
   // 📌 Delete Guideline
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`/api/admin/guidelines/${id}`);
+      const response = await axios.delete(`${API_BASE_URL}/api/admin/guidelines/${id}`);
       if (response.status === 200 ||  response.status === 204) {
         fetchData(); // Refresh List
       } else {

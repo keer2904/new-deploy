@@ -39,7 +39,7 @@ const ActivityManagement = () => {
         const formData = new FormData();
         formData.append("file", file);
         try {
-          const response=await axios.post(`/api/admin/upload-attendance/${actID}`, formData);
+          const response=await axios.post(`${API_BASE_URL}/api/admin/upload-attendance/${actID}`, formData);
           if(response.status===200){
             alert("Attendance uploaded successfully!");
           }
@@ -56,7 +56,7 @@ const ActivityManagement = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("/api/admin/manage-activities");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/manage-activities`);
       if (response.status === 200) {
         const today = new Date();
         const updatedActivities = response.data.map(activity => {
@@ -85,7 +85,7 @@ const ActivityManagement = () => {
 
   const getDeptData=async()=>{
     try {
-      const response = await axios.get("/api/admin/get-departments");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/get-departments`);
       if (response.status === 200) {
         setDepartments(response.data);
       } else {
@@ -100,7 +100,7 @@ const ActivityManagement = () => {
   // Add a new activity
   const handleAddActivity = async () => {
     try {
-      const response = await axios.post("/api/admin/manage-activities", newActivity);
+      const response = await axios.post(`${API_BASE_URL}/api/admin/manage-activities`, newActivity);
       if (response.status === 200) {
         fetchData(); // Refresh list
         setAddModalOpen(false);
@@ -128,7 +128,7 @@ const ActivityManagement = () => {
   // Edit an existing activity
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`/api/admin/manage-activities/${editActivity.actID}`, editActivity);
+      const response = await axios.put(`${API_BASE_URL}/api/admin/manage-activities/${editActivity.actID}`, editActivity);
       if (response.status === 200) {
         fetchData(); // Refresh list
         setIsEditModalOpen(false);
@@ -145,7 +145,7 @@ const ActivityManagement = () => {
   const handleDelete = async (id) => {
     try {
       console.log(id);
-      const response = await axios.delete(`/api/admin/manage-activities/${id}`);
+      const response = await axios.delete(`${API_BASE_URL}/api/admin/manage-activities/${id}`);
       if (response.status === 200) {
         fetchData(); // Refresh list
       } else {

@@ -62,7 +62,7 @@ const ManageUsers = () => {
 
   const fetchStudData = async () => {
     try {
-      const response = await axios.get("/api/admin/manage-users/student");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/manage-users/student`);
       if (response.status === 200) {
         setStudents(response.data);
       } else {
@@ -75,7 +75,7 @@ const ManageUsers = () => {
   };
   const fetchFAData = async () => {
     try {
-      const response = await axios.get("/api/admin/manage-users/fa");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/manage-users/fa`);
       if (response.status === 200) {
         setFaculties(response.data);
       } else {

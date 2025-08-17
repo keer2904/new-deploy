@@ -25,7 +25,7 @@ const RequestForm = () => {
 
   const fetchActivityData = async () => {
     try {
-      const response = await axios.get("/api/admin/manage-activities");
+      const response = await axios.get(`${API_BASE_URL}/api/admin/manage-activities`);
       if (response.status === 200) {
         const today = new Date();
         const updatedActivities = response.data.map(activity => {
@@ -56,7 +56,7 @@ const RequestForm = () => {
   useEffect(() => {
     const fetchFAData = async () => {
       try {
-        const response = await axios.get("/api/admin/manage-users/fa");
+        const response = await axios.get(`${API_BASE_URL}/api/admin/manage-users/fa`);
         if (response.status === 200) {
           setFaculties(response.data);
         }
