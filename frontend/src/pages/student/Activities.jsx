@@ -13,7 +13,7 @@ const Activities = () => {
     }
   }
   useEffect(() => {
-    fetch("${API_BASE_URL}/api/activities", {
+    fetch(`${API_BASE_URL}/api/activities`, {
       method: 'GET', headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }

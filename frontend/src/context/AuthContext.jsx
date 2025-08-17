@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import API_BASE_URL from "../../services/apiConfig"; // ✅ import backend base URL
+import API_BASE_URL from "../services/apiConfig";
 
 export const AuthContext = createContext();
 
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
 
         // Call backend student login
         const response = await axios.post(
-          `${API_BASE_URL}/auth/login-student`, // ✅ fixed
+          `${API_BASE_URL}/api/auth/login-student`, // ✅ fixed
           { email: data.email }
         );
 
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
 
         // Call backend FA login
         const response = await axios.post(
-          `${API_BASE_URL}/auth/login-fa`, // ✅ fixed
+          `${API_BASE_URL}/api/auth/login-fa`, // ✅ fixed
           { email: data.email }
         );
 

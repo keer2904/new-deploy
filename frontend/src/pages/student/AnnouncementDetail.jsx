@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Announcements from "./Announcements";
-
+import API_BASE_URL from "../../services/apiConfig";
 
 const formatDate = (dateString) => {
   const dateObj = new Date(dateString);
@@ -33,7 +33,7 @@ const AnnouncementDetail = () => {
           return;
         }
 
-        const response = await axios.get(`/api/student/${user.sid}/announcements/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/api/student/${user.sid}/announcements/${id}`);
         if (response.status === 200) {
           setAnnouncement(response.data);
         } else {

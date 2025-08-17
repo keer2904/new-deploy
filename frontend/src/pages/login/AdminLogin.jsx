@@ -15,7 +15,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("${API_BASE_URL}/admin/login", {
+      const res = await axios.post(`${API_BASE_URL}/admin/login`, {
         email,
         password,
       });
